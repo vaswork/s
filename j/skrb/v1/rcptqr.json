@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org",
+  "$id": "https://vaswork.github.io/s/j/skrb/v1/rcptqr.json",
+  "title": "My Skarb Receipt Metadata",
+  "description": "Структурированные данные фискального чека из Shopping Container (v1.0)",
+  "type": "object",
+  "required": ["$schema"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "const": "https://vaswork.github.io/s/j/skrb/v1/rcptqr.json"
+    },
+    "store": {
+      "type": "string"
+    },
+    "warranty_months": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "fiscal_qr": {
+      "type": "object",
+      "description": "Распарсенные параметры из строки QR-кода ФНС (t=...&s=...&fn=...&i=...&fp=...)",
+      "properties": {
+        "t": {
+          "type": "string",
+          "description": "Дата и время чека (YYYYMMDDTHHMM)"
+        },
+        "s": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Сумма чека"
+        },
+        "fn": {
+          "type": "string",
+          "description": "Номер фискального накопителя"
+        },
+        "i": {
+          "type": "string",
+          "description": "Порядковый номер фискального документа"
+        },
+        "fp": {
+          "type": "string",
+          "description": "Фискальный признак документа"
+        },
+        "n": {
+          "type": "integer",
+          "description": "Признак расчета (1 — приход)"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

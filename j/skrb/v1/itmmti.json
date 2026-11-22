@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org",
+  "$id": "https://vaswork.github.io/s/j/skrb/v1/itmmti.json",
+  "title": "My Skarb Item Metadata",
+  "description": "Расширенные метаданные учитываемой вещи (v1.0)",
+  "type": "object",
+  "required": ["$schema"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "const": "https://vaswork.github.io/s/j/skrb/v1/itmmti.json"
+    },
+    "storage_requirements": {
+      "type": "object",
+      "properties": {
+        "indoor_only": {
+          "type": "boolean",
+          "description": "true для семейных фото, книг, документов и чувствительной электроники"
+        },
+        "keep_upright": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "review_after": {
+          "type": "string",
+          "format": "date",
+          "description": "Дата следующей ревизии (YYYY-MM-DD)"
+        },
+        "future_action": {
+          "type": "string",
+          "description": "Указания по дальнейшей судьбе вещи"
+        }
+      },
+      "additionalProperties": false
+    },
+    "eco_disposal": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["General", "E-Waste", "Recyclable_Parts", "Donate"]
+        },
+        "salvaged_parts": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Список полезных деталей, снятых перед утилизацией"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
