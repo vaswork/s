@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org",
-  "$id": "https://github.io",
+  "$id": "https://vaswork.github.io/s/j/skrb/v1/cntlbl.json",
   "title": "My Skarb Container QR Label",
   "description": "Схема идентификатора физического контейнера системы My Skarb (v1.0)",
   "type": "object",
@@ -9,7 +9,7 @@
     "$schema": {
       "type": "string",
       "format": "uri",
-      "const": "https://github.io"
+      "const": "https://vaswork.github.io/s/j/skrb/v1/cntlbl.json"
     },
     "id": {
       "type": "string",
