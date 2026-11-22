@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org",
+  "$id": "https://github.io",
+  "title": "My Skarb Container QR Label",
+  "description": "Схема идентификатора физического контейнера системы My Skarb (v1.0)",
+  "type": "object",
+  "required": ["$schema", "id"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "const": "https://github.io"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Глобально уникальный идентификатор контейнера (UUID v4)"
+    }
+  },
+  "additionalProperties": false
+}
