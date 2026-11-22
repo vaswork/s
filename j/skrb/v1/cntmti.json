@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org",
-  "$id": "https://github.io",
+  "$id": "https://vaswork.github.io/s/j/skrb/v1/cntmti.json",
   "title": "My Skarb Container Metadata",
   "description": "Расширенные метаданные физического контейнера или локации (v1.1)",
   "type": "object",
@@ -9,7 +9,7 @@
     "$schema": {
       "type": "string",
       "format": "uri",
-      "const": "https://github.io"
+      "const": "https://vaswork.github.io/s/j/skrb/v1/cntmti.json"
     },
     "environment": {
       "type": "string",
