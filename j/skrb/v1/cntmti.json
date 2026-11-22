@@ -1,49 +1,44 @@
 {
   "$schema": "https://json-schema.org",
-  "$id": "https://vaswork.github.io/s/j/skrb/v1/cntmti.json",
+  "$id": "https://github.io",
   "title": "My Skarb Container Metadata",
-  "description": "Расширенные метаданные физического контейнера или локации (v1.0)",
+  "description": "Расширенные метаданные физического контейнера или локации (v1.1)",
   "type": "object",
   "required": ["$schema", "environment"],
   "properties": {
     "$schema": {
       "type": "string",
       "format": "uri",
-      "const": "https://vaswork.github.io/s/j/skrb/v1/cntmti.json"
+      "const": "https://github.io"
     },
     "environment": {
       "type": "string",
-      "enum": ["Indoor", "Outdoor"],
-      "description": "Indoor — сухое отапливаемое помещение; Outdoor — балкон, гараж, сарай, подпол"
+      "enum": ["Indoor", "Outdoor"]
+    },
+    "volume_liters": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Объём в литрах (указанный на этикетке или расчётный)"
+    },
+    "shape": {
+      "type": "object",
+      "description": "Габариты в см: для коробок (length, width, height) или тубусов (diameter, length)",
+      "properties": {
+        "form": { "type": "string", "enum": ["box", "cylinder", "bag", "zone"] },
+        "length_cm": { "type": "number", "minimum": 0 },
+        "width_cm": { "type": "number", "minimum": 0 },
+        "height_cm": { "type": "number", "minimum": 0 },
+        "diameter_cm": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
     },
     "packaging": {
       "type": "object",
       "properties": {
-        "source": {
-          "type": "string",
-          "enum": ["Retail", "Upcycled", "Custom", "RoomZone"]
-        },
-        "vendor": {
-          "type": "string",
-          "description": "Например: Леруа Мерлен / Союзпак"
-        },
-        "is_upcycled": {
-          "type": "boolean"
-        },
-        "original_product": {
-          "type": "string",
-          "description": "От чего коробка (например: Монитор Dell 27 или СВЧ-печь)"
-        }
-      },
-      "additionalProperties": false
-    },
-    "dimensions_cm": {
-      "type": "object",
-      "required": ["length", "width", "height"],
-      "properties": {
-        "length": { "type": "number", "minimum": 0 },
-        "width": { "type": "number", "minimum": 0 },
-        "height": { "type": "number", "minimum": 0 }
+        "source": { "type": "string", "enum": ["Retail", "Upcycled", "Custom", "RoomZone"] },
+        "vendor": { "type": "string" },
+        "is_upcycled": { "type": "boolean" },
+        "original_product": { "type": "string" }
       },
       "additionalProperties": false
     },
